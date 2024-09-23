@@ -1,15 +1,18 @@
 #1) Sequência de Fibonacci
 
-def fibonacci_sequence(n):
-    fib_seq = [0, 1]
-    while fib_seq[-1] < n:
-        fib_seq.append(fib_seq[-1] + fib_seq[-2])
+def pertence_fibonacci(n):
+    if n < 0:
+        return f"O número {n} não pertence à sequência de Fibonacci."
     
-    if n in fib_seq:
+    fib_a, fib_b = 0, 1  # Inicializando os dois primeiros números da sequência
+    while fib_a < n:
+        fib_a, fib_b = fib_b, fib_a + fib_b
+    
+    if fib_a == n:
         return f"O número {n} pertence à sequência de Fibonacci."
     else:
         return f"O número {n} não pertence à sequência de Fibonacci."
 
 # Exemplo de uso:
 numero = 21  # você pode mudar o número aqui
-print(fibonacci_sequence(numero))
+print(pertence_fibonacci(numero))
